@@ -5,7 +5,7 @@ The program takes a path to file and print 10 most common words from the file. A
 # Quickstart
 
 Exmaple of script launch on Linux, Python 3.5:
-```python
+```
 $ python lang_frequency.py <path to file>
 #output example
 10 часто используемых слов:
