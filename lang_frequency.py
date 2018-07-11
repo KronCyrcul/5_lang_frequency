@@ -12,8 +12,9 @@ def load_data(filepath):
 
 
 def get_most_frequent_words(text):
+    highest_number = 10
     all_words_counts = Counter(text)
-    most_common_words = all_words_counts.most_common(10)
+    most_common_words = all_words_counts.most_common(highest_number)
     print("10 часто используемых слов:")
     for pair in most_common_words:
         print("{} - {}".format(pair[0], pair[1]))
