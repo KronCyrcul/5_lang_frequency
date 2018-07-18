@@ -5,26 +5,26 @@ from collections import Counter
 
 def load_data(filepath):
     with open(filepath) as file:
-        file_content = file.read()
-    pattern = r"[,.:;@#?!&$()\-\u2026]"
-    changed_text = re.sub(pattern, " ", file_content).casefold()
-    return changed_text.split()
+        text_string = file.read()
+    return text_string
 
 
 def get_most_frequent_words(text):
-    highest_number = 10
-    all_words_counts = Counter(text)
-    most_common_words = all_words_counts.most_common(highest_number)
+    TEN = 10
+    pattern = r"[A-z]+"
+    changed_text = re.sub(pattern, " ", text_string).casefold()
+    words_frequencies = Counter(changed_text.split())
+    most_common_words = words_frequencies.most_common(TEN)
     print("10 часто используемых слов:")
-    for pair in most_common_words:
-        print("{} - {}".format(pair[0], pair[1]))
+    for word, frequency in most_common_words:
+        print("{} - {}".format(word, frequency))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     try:
         filepath = sys.argv[1]
-        file_content = load_data(filepath)
-        get_most_frequent_words(file_content)
+        text_string = load_data(filepath)
+        get_most_frequent_words(text_string)
     except IndexError:
         sys.exit("Введите путь до файла")
     except FileNotFoundError:
