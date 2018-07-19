@@ -9,23 +9,12 @@ def load_data(filepath):
     return text_string
 
 
-<<<<<<< HEAD
 def get_most_frequent_words(text, top_n):
-=======
-def get_most_frequent_words(text):
-    top_n = 10
->>>>>>> d907c61383f15c8a0cc581e9f8869007a7e35a03
     pattern = r"[A-z]+"
     changed_text = re.sub(pattern, " ", text_string).casefold()
     words_frequencies = Counter(changed_text.split())
     most_common_words = words_frequencies.most_common(top_n)
-<<<<<<< HEAD
     return most_common_words
-=======
-    print("10 часто используемых слов:")
-    for word, frequency in most_common_words:
-        print("{} - {}".format(word, frequency))
->>>>>>> d907c61383f15c8a0cc581e9f8869007a7e35a03
 
 
 if __name__ == "__main__":
